@@ -76,7 +76,8 @@ function M.compile()
 	local user_flavour = M.flavour
 	for flavour, _ in pairs(M.flavours) do
 		M.flavour = flavour
-		require("catppuccin.lib." .. (is_vim and "vim." or "") .. "compiler").compile(flavour)
+		require("catppuccin.lib.C").compile(flavour)
+		-- require("catppuccin.lib." .. (is_vim and "vim." or "") .. "compiler").compile(flavour)
 	end
 	M.flavour = user_flavour -- Restore user flavour after compile
 end
