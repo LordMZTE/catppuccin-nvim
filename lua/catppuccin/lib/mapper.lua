@@ -1,7 +1,7 @@
 local M = {}
 
 local function get_integrations()
-	local integrations = O["integrations"]
+	local integrations = O.integrations
 	local final_integrations = {}
 
 	for integration in pairs(integrations) do
@@ -9,7 +9,10 @@ local function get_integrations()
 		if type(integrations[integration]) == "table" then
 			if integrations[integration].enabled == true then cot = true end
 		else
-			if integrations[integration] == true then cot = true end
+			if integrations[integration] == true then
+				integrations[integration] = require("catppuccin").default_options[integration]
+				cot = true
+			end
 		end
 
 		if cot then

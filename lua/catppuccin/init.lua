@@ -3,7 +3,7 @@ if is_vim then require "catppuccin.lib.vim" end
 
 ---@type Catppuccin
 local M = {
-	options = {
+	default_options = {
 		background = {
 			light = "latte",
 			dark = "mocha",
@@ -139,7 +139,7 @@ function M.setup(user_conf)
 	did_setup = true
 	-- Parsing user config
 	user_conf = user_conf or {}
-	M.options = vim.tbl_deep_extend("keep", user_conf, M.options)
+	M.options = vim.tbl_deep_extend("keep", user_conf, M.default_options)
 	M.options.highlight_overrides.all = user_conf.custom_highlights or M.options.highlight_overrides.all
 
 	-- Get cached hash
