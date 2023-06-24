@@ -7,7 +7,7 @@ local function get_integrations()
 	for integration in pairs(integrations) do
 		local cot = false
 		if type(integrations[integration]) == "table" then
-			if integrations[integration]["enabled"] == true then cot = true end
+			if integrations[integration].enabled == true then cot = true end
 		else
 			if integrations[integration] == true then cot = true end
 		end
